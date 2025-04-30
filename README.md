@@ -12,17 +12,19 @@ Le processus de demande de prêt est décomposé en plusieurs étapes, chacune g
 ## ✅ Fiche d’auto-évaluation
 Une Auto-Évaluation basée sur les critères du projet :
 
-| Critères                                                                 | Points max | Points obtenus | Commentaire |
-|--------------------------------------------------------------------------|------------|----------------|-------------|
-| Modélisation d’un workflow avec pools et interactions entre 2 partenaires | 15         | 15             | Deux pools modélisés : client et service bancaire |
-| Utilisation de passerelles (OR, AND, XOR) dans le workflow               | 15         | 15             | Passerelle XOR utilisée pour valider ou refuser la demande |
-| Activité appelant une API REST                                           | 30         | 30             | Appel REST effectué pour récupérer les informations utilisateur |
-| Activité appelant un service SOAP                                        | 30         | 30             | Appel SOAP simulé pour la vérification d’éligibilité au prêt |
-| Activité appelant une API gRPC                                           | 20         | 20             | Service gRPC pour calculer le taux d’intérêt |
-| Activité appelant une API GraphQL                                        | 20         | 20             | Utilisation de GraphQL pour requêter les données clients |
-| Tests et documentation des APIs                                          | 30         | 30             | Documentation fournie (Swagger/Postman) et tests réussis |
-| Procédure correcte, exécution complète du processus                      | 40         | 40             | Le processus BPMN est exécuté de bout en bout sans erreur |
-| Déploiement en microservices (optionnel)                                 | 0         | 0            |  |
+
+| **Critères**                                                          | **Points max** | **Points obtenus** | **Commentaires**                                                                                                                                                   |
+|------------------------------------------------------------------------|----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Modélisation d’un workflow avec pools et interactions entre partenaires | 15             | 15                  | Deux pools modélisés : client et service bancaire.                                                                                                                  |
+| Utilisation de passerelles (OR, AND, XOR) dans le workflow             | 15             | 15                  | Passerelle XOR utilisée pour valider ou rejeter la demande.                                                                                                         |
+| Activité appelant une API REST                                         | 30             | 30                  | Consolidation des services REST ("Vérification du montant maximal du prêt", "Création de la demande", "Approbation du prêt") dans une seule API nommée ResourceLoan, documentée dans APILoan. |
+| Activité appelant un service SOAP                                      | 30             | 30                  | Service backend SOAP utilisé pour vérifier le statut du chèque et insérer son état dans la base de données.                                                        |
+| Activité appelant une API gRPC                                         | 20             | 20                  | Service gRPC pour calculer le profil de risque client et l'enregistrer dans la base de données.                                                                    |
+| Activité appelant une API GraphQL                                      | 20             | 20                  | Utilisation de GraphQL pour effectuer un transfert d'argent entre la banque et le client.                                                                          |
+| Tests et documentation des APIs                                        | 30             | 30                  | Documentation fournie (Swagger/Postman) et tests réalisés avec succès pour les différents services.                                                                |
+| Procédure correcte, exécution complète du processus                    | 40             | 40                  | Processus BPMN exécuté intégralement et sans erreur.                                                                                                               |
+| Déploiement en microservices (optionnel)                               | 0              | 0                   | Non réalisé ou non applicable.                                                                                                                                     |
+
 
 **Total obtenu : 200 / 250**
 

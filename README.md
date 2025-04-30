@@ -1,15 +1,16 @@
 
-# Projet Microservices : Gestion des Prêts
-##Introduction
-Le processus de demande de prêt est décomposé en plusieurs étapes, chacune gérée par un microservice spécifique. Les services communiquent entre eux à l'aide de requêtes REST et de messages asynchrones via un Message Broker. Le processus global est orchestré via un API Gateway.
+# Projet Microservices : Application demande des Prêts
 
-## 🔗 Lien vers le dépôt Git
+## Introduction
+Le processus de demande de prêt est décomposé en plusieurs étapes, chacune gérée par un microservice spécifique. Les services communiquent entre eux à l'aide de requêtes REST,SOAP, GraphQL et GRPC et de messages asynchrones via un Service de notification. 
+
+## Scénario : processus de prêt et WorkFlow BPMN 
+
+## 🔗 Lien du projet vers le dépôt Git
 [👉 Accéder au dépôt GitHub](https://github.com/nlemkhanat/Projet)
 
-
 ## ✅ Fiche d’auto-évaluation
-
-Évaluation basée sur les critères du projet :
+Une Auto-Évaluation basée sur les critères du projet :
 
 | Critères                                                                 | Points max | Points obtenus | Commentaire |
 |--------------------------------------------------------------------------|------------|----------------|-------------|
@@ -24,6 +25,65 @@ Le processus de demande de prêt est décomposé en plusieurs étapes, chacune g
 | Déploiement en microservices (optionnel)                                 | 0         | 0            |  |
 
 **Total obtenu : 200 / 250**
+
+
+## 🛠️ Prérequis et Installation
+- Node.js / Python / Java JDK /Eclippse IDE/ Tomacat 9.0
+- Docker (facultatif)
+- Git
+
+**Avant de lancer l'application, assurez-vous d'avoir les éléments suivants installés et configurés sur votre machine.**
+
+### 🔹 1. Prérequis Java (pour le backend avec Tomcat)
+
+#### a. Télécharger Eclipse IDE
+Téléchargez et installez **Eclipse IDE for Java EE Developers** depuis le site officiel :  
+👉[Eclipse IDE for Enterprise Java and Web Developers](https://www.eclipse.org/downloads/packages/release/2022-06/r/eclipse-ide-enterprise-java-and-web-developers)
+
+#### b. Installer Apache Tomcat dans Eclipse
+1. Téléchargez **Apache Tomcat 9.0** (ou version compatible) depuis :  
+   👉 [Tomcat 9.0 ](https://tomcat.apache.org/download-90.cgi)
+2. Extrayez le dossier ZIP dans un répertoire local.
+3. Dans Eclipse :
+   - Allez dans `Window → Show View → Other... → Servers`.
+   - Clic droit dans la vue *Servers*, sélectionnez `New → Server`.
+   - Choisissez `Apache → Tomcat v9.0 Server`, hôte : `localhost`.
+   - Cliquez sur **Next**, puis configurez le chemin vers le dossier Tomcat extrait.
+   - Terminez et démarrez le serveur.
+
+---
+### 🔹 2. Prérequis Python (pour les services SOAP et gRPC)
+
+Assurez-vous que **Python 3.x** et `pip` sont installés sur votre système.  
+Vous pouvez vérifier avec :
+```bash
+python --version
+pip --version
+```
+
+### 🔹3.Résumé des Technologies utlisees 
+
+| Type de Service         | Technologie / Outil                      |
+|-------------------------|-------------------------------------------|
+| IDE                     | Eclipse for Java EE Developers            |
+| Serveur d'application   | Apache Tomcat 9.x                         |
+| REST API                | Java (JAX-RS via Jersey / Jakarta)        |
+| SOAP API                | Python avec `spyne`, `zeep`, `suds-jurko` |
+| gRPC API                | Python avec `grpcio`, `grpcio-tools`      |
+| GraphQL API             | (à compléter si présent)                  |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 🚀 How to use

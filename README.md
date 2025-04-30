@@ -73,7 +73,6 @@ Téléchargez et installez **Eclipse IDE for Java EE Developers** depuis le site
    - Cliquez sur **Next**, puis configurez le chemin vers le dossier Tomcat extrait.
    - Terminez et démarrez le serveur.
 
----
 ### 🔹 2. Prérequis Python (pour les services SOAP et gRPC)
 
 Assurez-vous que **Python 3.x** et `pip` sont installés sur votre système.  

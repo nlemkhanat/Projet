@@ -153,9 +153,9 @@ Les principaux services sont :
 | Microservice                          | Type         | Input                               | Output                          | Intérêt                                   | Protocole recommandé |
 |---------------------------------------|--------------|--------------------------------------|----------------------------------|-------------------------------------------|----------------------|
 | Service Creation de la demande                  | IHM | Formulaire client, Données du client (ID, informations personnelles, type de prêt, montant).                   | Confirmation de la soumission du formulaire ( ID du prêt généré )          | Orchestration et gestion du workflow       | REST                 |
-| Service Vérification du montant maximal du prêt              | Métier       | ID du prêt, Montant demandé          | Statut d’acceptation (Oui/Non)  | Vérifie si le prêt dépasse le montant maximal | REST                 |
+| Service Vérification du montant maximal du prêt              | Métier       | ID du prêt, Montant demandé          | Statut d’acceptation (Oui/Non)  | Vérifie si le prêt dépasse le montant maximal | REST  |
 | Customer Risk Assessment Service      | Métier       | ID client, historique bancaire       | Niveau de risque du client      | Évaluation du risque pour décision de prêt | gRPC  | 
-| Service de demande de cheque        | Metier | niveau du risque, Montant du pret            | Refus ou creation de demande du cheque  |                |
+| Service de demande de cheque        | Metier | niveau du risque, Montant du pret            | Refus ou creation de demande du cheque  | Service verifcation dule RISK et le montant pour valider la demande  |REST
 | Bank Check Validation Service         | Intégration  | Chèque soumis par client            | Statut du chèque (Validé/Rejeté) | Vérifie la validité du chèque via la banque | SOAP                 |
 | Loan Approval Service                 | Métier       | ID du prêt, Statut du chèque         | Statut de l'approbation         | Approuve ou rejette le prêt final         | REST                 |
 | Loan Disbursement Service             | Paiement     | ID du prêt approuvé                 | Confirmation de transfert       | Transfert des fonds au client             | GraphQL              |

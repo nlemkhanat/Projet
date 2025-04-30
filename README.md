@@ -1,7 +1,65 @@
 
 # Projet Microservices : Gestion des Prêts
-### Introduction
+##Introduction
 Le processus de demande de prêt est décomposé en plusieurs étapes, chacune gérée par un microservice spécifique. Les services communiquent entre eux à l'aide de requêtes REST et de messages asynchrones via un Message Broker. Le processus global est orchestré via un API Gateway.
+
+## 🔗 Lien vers le dépôt Git
+[👉 Accéder au dépôt GitHub](https://github.com/nlemkhanat/Projet)
+
+
+## ✅ Fiche d’auto-évaluation
+
+Évaluation basée sur les critères du projet :
+
+| Critères                                                                 | Points max | Points obtenus | Commentaire |
+|--------------------------------------------------------------------------|------------|----------------|-------------|
+| Modélisation d’un workflow avec pools et interactions entre 2 partenaires | 15         | 15             | Deux pools modélisés : client et service bancaire |
+| Utilisation de passerelles (OR, AND, XOR) dans le workflow               | 15         | 15             | Passerelle XOR utilisée pour valider ou refuser la demande |
+| Activité appelant une API REST                                           | 30         | 30             | Appel REST effectué pour récupérer les informations utilisateur |
+| Activité appelant un service SOAP                                        | 30         | 30             | Appel SOAP simulé pour la vérification d’éligibilité au prêt |
+| Activité appelant une API gRPC                                           | 20         | 20             | Service gRPC pour calculer le taux d’intérêt |
+| Activité appelant une API GraphQL                                        | 20         | 20             | Utilisation de GraphQL pour requêter les données clients |
+| Tests et documentation des APIs                                          | 30         | 30             | Documentation fournie (Swagger/Postman) et tests réussis |
+| Procédure correcte, exécution complète du processus                      | 40         | 40             | Le processus BPMN est exécuté de bout en bout sans erreur |
+| Déploiement en microservices (optionnel)                                 | 0         | 0            |  |
+
+**Total obtenu : 200 / 250**
+
+
+## 🚀 How to use
+
+### Étape 1 : Accueil
+![Accueil](./captures/home.png)
+
+### Étape 2 : Formulaire de demande
+![Formulaire](./captures/form.png)
+
+### Étape 3 : Confirmation
+![Confirmation](./captures/confirmation.png)
+
+### Étape 4 : Suivi
+![Suivi](./captures/tracking.png)
+
+
+
+## 🛠️ How to install
+
+### Prérequis
+- Node.js / Python / Java
+- Docker (facultatif)
+- Git
+
+### Installation locale
+
+```bash
+git clone https://github.com/nom-utilisateur/nom-du-depot.git
+cd nom-du-depot
+npm install
+npm start
+
+
+
+
 
 
 ### Scénario : processus de prêt

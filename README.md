@@ -40,22 +40,12 @@ Le processus de demande de prêt est décomposé en plusieurs étapes, chacune g
 ### Étape 4 : Suivi
 ![Suivi](./captures/tracking.png)
 
-
-
 ## 🛠️ How to install
 
 ### Prérequis
 - Node.js / Python / Java
 - Docker (facultatif)
 - Git
-
-### Installation locale
-
-```bash
-git clone https://github.com/nom-utilisateur/nom-du-depot.git
-cd nom-du-depot
-npm install
-npm start ```
 
 # Scénario : processus de prêt
 Considérons un scénario dans lequel une société de services financiers propose à ses clients un service de demande de prêt comme suit :
@@ -139,7 +129,13 @@ Explication des choix technologiques  :
 *  Réduit les appels multiples en fournissant toutes les infos en une requête.
 
 
+### Installation locale
 
+```bash
+git clone https://github.com/nom-utilisateur/nom-du-depot.git
+cd nom-du-depot
+npm install
+npm start
 
 
 

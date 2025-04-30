@@ -55,14 +55,9 @@ Le processus de demande de prêt est décomposé en plusieurs étapes, chacune g
 git clone https://github.com/nom-utilisateur/nom-du-depot.git
 cd nom-du-depot
 npm install
-npm start
+npm start ```
 
-
-
-
-
-
-### Scénario : processus de prêt
+# Scénario : processus de prêt
 Considérons un scénario dans lequel une société de services financiers propose à ses clients un service de demande de prêt comme suit :
 
 Workflow BPMN du processus :

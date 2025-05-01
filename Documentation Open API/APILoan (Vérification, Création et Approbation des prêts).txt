@@ -1,0 +1,191 @@
+openapi: 3.0.1
+info:
+  title: Loan Management API
+  description: API for managing loan requests and customer financial risk levels.
+  version: 1.0.0
+paths:
+  /loans:
+    get:
+      summary: Retrieve all loan requests
+      description: Get the list of all loan requests in the system.
+      responses:
+        '200':
+          description: Successfully retrieved loan requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Loan'
+        '500':
+          description: Server error while fetching loan requests
+    post:
+      summary: Create a new loan request
+      description: Add a new loan request to the system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Loan'
+      responses:
+        '201':
+          description: Loan request created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '500':
+          description: Server error while creating loan request
+  /loans/{id}:
+    get:
+      summary: Get loan request by ID
+      description: Retrieve the loan request with the specified ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Loan request found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '404':
+          description: Loan request not found
+    put:
+      summary: Update an existing loan request
+      description: Modify an existing loan request with the specified ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Loan'
+      responses:
+        '200':
+          description: Loan request updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '404':
+          description: Loan request not found
+    delete:
+      summary: Delete a loan request
+      description: Remove the loan request with the specified ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Loan request deleted
+        '404':
+          description: Loan request not found
+  /loans/{id}/verify:
+    put:
+      summary: Verify loan request
+      description: Verify if the loan request meets the maximum loan criteria.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Loan verification status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '404':
+          description: Loan request not found
+  /loans/{id}/status:
+    get:
+      summary: Get loan status
+      description: Retrieve the current status of a loan request by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Loan status retrieved
+        '404':
+          description: Loan request not found
+  /loans/{loanId}/risk:
+    get:
+      summary: Get customer risk level
+      description: Retrieve the financial risk level for a customer associated with the loan.
+      parameters:
+        - name: loanId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Risk level retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  riskLevel:
+                    type: string
+                    enum:
+                      - LOW
+                      - MEDIUM
+                      - HIGH
+        '404':
+          description: Loan request not found
+components:
+  schemas:
+    Loan:
+      type: object
+      properties:
+        id:
+          type: integer
+        customer:
+          $ref: '#/components/schemas/Customer'
+        amount:
+          type: number
+          format: double
+        loanType:
+          type: string
+          enum:
+            - PERSONAL
+            - COMMERCIAL
+        status:
+          type: string
+          enum:
+            - PENDING
+            - APPROVED
+            - REJECTED
+            - CANCELLED
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string

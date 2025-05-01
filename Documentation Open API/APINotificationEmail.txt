@@ -1,0 +1,65 @@
+openapi: 3.0.1
+info:
+  title: SMS Notification API
+  description: API for sending SMS notifications
+  version: 1.0.0
+paths:
+  /notifications/sms/send:
+    post:
+      summary: Send SMS Notification
+      description: Send an SMS notification with the provided phone number and message.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSRequest'
+      responses:
+        '200':
+          description: SMS sent successfully
+        '500':
+          description: Failed to send SMS
+components:
+  schemas:
+    SMSRequest:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+        message:
+          type: string
+
+
+
+openapi: 3.0.1
+info:
+  title: Email Notification API
+  description: API for sending email notifications
+  version: 1.0.0
+paths:
+  /notifications/email/send:
+    post:
+      summary: Send Email Notification
+      description: Send an email notification with the provided recipient, subject, and body.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailRequest'
+      responses:
+        '200':
+          description: Email sent successfully
+        '500':
+          description: Failed to send email
+components:
+  schemas:
+    EmailRequest:
+      type: object
+      properties:
+        to:
+          type: string
+        subject:
+          type: string
+        body:
+          type: string

@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: Cheque API
+  description: API for retrieving cheque validation status
+  version: 1.0.0
+paths:
+  /cheques/{chequeNumber}/status:
+    get:
+      summary: Get cheque validation status
+      description: Retrieve the validation status of a cheque using its cheque number.
+      parameters:
+        - name: chequeNumber
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved cheque validation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  chequeNumber:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                      - VALIDATED
+                      - REJECTED
+                      - PENDING
+        '404':
+          description: Cheque not found
+components:
+  schemas:
+    Cheque:
+      type: object
+      properties:
+        chequeNumber:
+          type: string
+        status:
+          type: string
+          enum:
+            - VALIDATED
+            - REJECTED
+            - PENDING

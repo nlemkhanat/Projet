@@ -99,11 +99,47 @@ pip --version
 
 ## 🛠️ How to install application 
 
-### Prérequis
-- Node.js / Python / Java
-- Docker (facultatif)
-- Git
+Étape 1 : Cloner le projet
+Téléchargez le dossier du projet depuis le dépôt Git en exécutant la commande suivante :
 
+``` git clone https://github.com/nlemkhanat/Projet.git
+```
+
+L'installation  de application est via  :
+
+Lancer les microservices en Java avec Tomcat.
+Lancer les services backend en Python dans des terminaux séparés.
+
+
+Étape 2 : Organisation des dossiers
+Dans le dossier cloné du projet, vous trouverez trois dossiers principaux destinés à l'installation des différents services  : Microservices Project,Customer Risk Assessment Service, Bank Check Validation Service.
+
+### Installation et exécution du dossier en java  : Microservices Project  
+Ce dossier contient les principaux services Java, l'application et le client. Suivez ces étapes pour exécuter l'application dans un serveur Tomcat : 
+```  1.Lancez le serveur Tomcat.
+2.Faites un clic droit sur le serveur Tomcat → Sélectionnez  Add and Remove….
+3.Ajoutez le projet MicroserviceProject dans le serveur.
+4.Accédez à l'application depuis votre navigateur à l'adresse suivante :
+http://localhost:8080/MicroserviceProject/BankLoan
+5.Vérifiez que la réponse s'affiche correctement dans le navigateur.
+```
+
+###  Installation et exécution des services backend en Python : Customer Risk Assessment Service, Bank Check Validation Service.
+
+Installation et exécution du dossier en python : 
+
+1.Ouvrez un terminal (cmd) et naviguez jusqu'au répertoire des services backend spécifiques. Par exemple, pour lancer le service de validation des chèques, exécutez les commandes suivantes :
+
+``` cd Desktop\Projet MicroserviceDemande du pret\Bank Check Validation Service
+python server.py
+```
+2.Dans un autre terminal, lancez le client correspondant :
+
+```cd Desktop\Projet MicroserviceDemande du pret\Bank Check Validation Service
+python client.py
+```
+3.Répétez cela pour chaque service dans chaque cmd
+4.pour service Customer Risk Assessment Service : Accédez à son répertoire et exécutez les scripts serveur et client de la même manière.
 
 
 ## 🚀 How to use

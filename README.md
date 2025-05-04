@@ -8,7 +8,9 @@
 Le processus de demande de prêt est décomposé en plusieurs étapes, chacune gérée par un microservice spécifique. Les services communiquent entre eux à l'aide de requêtes REST,SOAP, GraphQL et GRPC et de messages asynchrones via un Service de notification. 
 
 ## Scénario : processus de prêt et WorkFlow BPMN 
-Considérons un scénario dans lequel une société de services financiers propose à ses clients un service de demande de prêt.Le Workflow BPMN du processus suite :
+Considérons un scénario dans lequel une société de services financiers propose à ses clients un service de demande de prêt. Le Workflow BPMN du processus:
+
+![Prcoessus BPMN ](Processus Loan Request/Loan Request BPMN.png)
 
 ## Architecture de l'application et Bases donnees 
 

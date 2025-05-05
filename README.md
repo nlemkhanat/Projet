@@ -145,13 +145,13 @@ python client.py
 ## 🚀 How to use
 
 ### Étape 1 : Accueil
-![Accueil](./captures/home.png)
+![Accueil](/captures/home.png)
 
 ### Étape 2 : Formulaire de demande
-![Formulaire](.form.png)
+![Formulaire](form.png)
 
 ### Étape 3 : Confirmation
-![Confirmation](.confirmation.png)
+![Confirmation](confirmation.png)
 
 ### Étape 4 : Suivi
 ![Suivi](./captures/tracking.png)

@@ -148,10 +148,10 @@ python client.py
 ![Accueil](./captures/home.png)
 
 ### Étape 2 : Formulaire de demande
-![Formulaire](./captures/form.png)
+![Formulaire](.form.png)
 
 ### Étape 3 : Confirmation
-![Confirmation](./captures/confirmation.png)
+![Confirmation](.confirmation.png)
 
 ### Étape 4 : Suivi
 ![Suivi](./captures/tracking.png)

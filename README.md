@@ -10,7 +10,7 @@ Le processus de demande de prêt est décomposé en plusieurs étapes, chacune g
 ## Scénario : processus de prêt et WorkFlow BPMN 
 Considérons un scénario dans lequel une société de services financiers propose à ses clients un service de demande de prêt. Le Workflow BPMN du processus:
 
-![Processus BPMN](Processus%20Loan%20Request/Loan%20Request%20BPMN.png)
+![Processus BPMN](WorkFlowBPMN.png)
 
 
 ## Architecture de l'application et Bases donnees 

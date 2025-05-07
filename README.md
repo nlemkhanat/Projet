@@ -110,7 +110,8 @@ pip install grpcio-tools
 Étape 1 : Cloner le projet
 Téléchargez le dossier du projet depuis le dépôt Git en exécutant la commande suivante :
 
-``` git clone https://github.com/nlemkhanat/Projet.git
+```
+ git clone https://github.com/nlemkhanat/Projet.git
 ```
 
 L'installation  de application est via  :

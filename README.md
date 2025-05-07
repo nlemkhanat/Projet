@@ -121,7 +121,7 @@ Lancer les services backend en Python dans des terminaux séparés.
 
 
 Étape 2 : Organisation des dossiers
-Dans le dossier cloné du projet, vous trouverez trois dossiers principaux destinés à l'installation des différents services  : Microservices Project,Customer Risk Assessment Service, Bank Check Validation Service.
+Dans le dossier cloné du projet, vous trouverez Qautre dossiers principaux destinés à l'installation des différents services  : Microservices Project,Customer Risk Assessment Service, Bank Check Validation Service.
 
 ### Installation et exécution du dossier en java  : Microservices Project  
 Ce dossier contient les principaux services Java, l'application et le client. Suivez ces étapes pour exécuter l'application dans un serveur Tomcat : 

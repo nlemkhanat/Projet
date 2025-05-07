@@ -76,13 +76,21 @@ Téléchargez et installez **Eclipse IDE for Java EE Developers** depuis le site
    - Cliquez sur **Next**, puis configurez le chemin vers le dossier Tomcat extrait.
    - Terminez et démarrez le serveur.
 
-### 🔹 2. Prérequis Python (pour les services SOAP et gRPC)
+### 🔹 2. Prérequis Python (pour les services SOAP,GraphQl et gRPC)
 
 Assurez-vous que **Python 3.x** et `pip` sont installés sur votre système.  
 Vous pouvez vérifier avec :
 ```bash
 python --version
 pip --version
+pip install spyne
+pip install suds-jurko
+pip install zeep
+
+pip install graphene
+
+pip install grpcio
+pip install grpcio-tools
 ```
 
 ### 🔹3.Résumé des Technologies utlisees 
@@ -94,7 +102,7 @@ pip --version
 | REST API                | Java (JAX-RS via Jersey / Jakarta)        |
 | SOAP API                | Python avec `spyne`, `zeep`, `suds-jurko` |
 | gRPC API                | Python avec `grpcio`, `grpcio-tools`      |
-| GraphQL API             | (à compléter si présent)                  |
+| GraphQL API             | Python avec ' graphene '                  |
 
 
 ## 🛠️ How to install application 
@@ -124,7 +132,7 @@ http://localhost:8080/MicroserviceProject/BankLoan
 5.Vérifiez que la réponse s'affiche correctement dans le navigateur.
 ```
 
-###  Installation et exécution des services backend en Python : Customer Risk Assessment Service, Bank Check Validation Service.
+###  Installation et exécution des services backend en Python : Bank Check Validation Service, Customer Risk Assessment Service,  Loan Disbursement Service  
 
 Installation et exécution du dossier en python : 
 
@@ -139,7 +147,7 @@ python server.py
 python client.py
 ```
 3.Répétez cela pour chaque service dans chaque cmd
-4.pour service Customer Risk Assessment Service : Accédez à son répertoire et exécutez les scripts serveur et client de la même manière.
+4.pour les services Customer Risk Assessment Service,  Loan Disbursement Service : Accédez à son répertoire et exécutez les scripts serveur et client de la même manière.
 
 
 ## 🚀 How to use

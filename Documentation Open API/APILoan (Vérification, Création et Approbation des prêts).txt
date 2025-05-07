@@ -1,146 +1,140 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
-  title: Loan Management API
-  description: API for managing loan requests and customer financial risk levels.
+  title: Service de Demande de Prêt
+  description: API REST pour gérer les demandes de prêt, y compris la vérification, l'analyse de risque et la notification.
   version: 1.0.0
+servers:
+  - url: http://localhost:8080/ProjectLoanRequestServices/loans
+    description: Serveur de développement local
 paths:
-  /loans:
+  /:
     get:
-      summary: Retrieve all loan requests
-      description: Get the list of all loan requests in the system.
+      summary: Récupérer toutes les demandes de prêt
+      operationId: getAllLoanRequests
       responses:
         '200':
-          description: Successfully retrieved loan requests
+          description: Liste des demandes de prêt
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Loan'
-        '500':
-          description: Server error while fetching loan requests
     post:
-      summary: Create a new loan request
-      description: Add a new loan request to the system.
+      summary: Créer une nouvelle demande de prêt
+      operationId: createLoanRequest
       requestBody:
-        required: true
+        description: Objet LoanRequest à créer
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Loan'
+        required: true
       responses:
         '201':
-          description: Loan request created successfully
+          description: Demande de prêt créée avec succès
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Loan'
         '500':
-          description: Server error while creating loan request
-  /loans/{id}:
+          description: Erreur serveur interne
+  '/{id}':
     get:
-      summary: Get loan request by ID
-      description: Retrieve the loan request with the specified ID.
+      summary: Récupérer une demande de prêt par ID
+      operationId: getLoanRequest
       parameters:
         - name: id
           in: path
+          description: ID de la demande de prêt
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Loan request found
+          description: Détails de la demande de prêt
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Loan'
         '404':
-          description: Loan request not found
-    put:
-      summary: Update an existing loan request
-      description: Modify an existing loan request with the specified ID.
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Loan'
-      responses:
-        '200':
-          description: Loan request updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Loan'
-        '404':
-          description: Loan request not found
+          description: Demande de prêt non trouvée
     delete:
-      summary: Delete a loan request
-      description: Remove the loan request with the specified ID.
+      summary: Supprimer une demande de prêt par ID
+      operationId: deleteLoanRequest
       parameters:
         - name: id
           in: path
+          description: ID de la demande de prêt
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Loan request deleted
+          description: Demande de prêt supprimée avec succès
         '404':
-          description: Loan request not found
-  /loans/{id}/verify:
+          description: Demande de prêt non trouvée
+  '/{id}/verify':
     put:
-      summary: Verify loan request
-      description: Verify if the loan request meets the maximum loan criteria.
+      summary: Vérifier une demande de prêt par ID
+      operationId: verifyLoanRequest
       parameters:
         - name: id
           in: path
+          description: ID de la demande de prêt
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Loan verification status
+          description: Résultat de la vérification
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Loan'
+                type: object
+                properties:
+                  loanRequest:
+                    $ref: '#/components/schemas/Loan'
+                  message:
+                    type: string
         '404':
-          description: Loan request not found
-  /loans/{id}/status:
+          description: Demande de prêt non trouvée
+        '500':
+          description: Erreur serveur interne
+  '/{id}/status':
     get:
-      summary: Get loan status
-      description: Retrieve the current status of a loan request by ID.
+      summary: Récupérer le statut d'une demande de prêt par ID
+      operationId: getLoanStatus
       parameters:
         - name: id
           in: path
+          description: ID de la demande de prêt
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Loan status retrieved
+          description: Statut de la demande de prêt
+          content:
+            text/plain:
+              schema:
+                type: string
         '404':
-          description: Loan request not found
-  /loans/{loanId}/risk:
+          description: Demande de prêt non trouvée
+  '/{loanId}/risk':
     get:
-      summary: Get customer risk level
-      description: Retrieve the financial risk level for a customer associated with the loan.
+      summary: Récupérer le niveau de risque d'une demande de prêt par ID
+      operationId: getRiskLevel
       parameters:
         - name: loanId
           in: path
+          description: ID de la demande de prêt
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Risk level retrieved
+          description: Niveau de risque de la demande de prêt
           content:
             application/json:
               schema:
@@ -148,12 +142,8 @@ paths:
                 properties:
                   riskLevel:
                     type: string
-                    enum:
-                      - LOW
-                      - MEDIUM
-                      - HIGH
         '404':
-          description: Loan request not found
+          description: Demande de prêt non trouvée
 components:
   schemas:
     Loan:
@@ -165,19 +155,15 @@ components:
           $ref: '#/components/schemas/Customer'
         amount:
           type: number
-          format: double
+          format: float
         loanType:
           type: string
-          enum:
-            - PERSONAL
-            - COMMERCIAL
         status:
           type: string
           enum:
             - PENDING
-            - APPROVED
             - REJECTED
-            - CANCELLED
+            - APPROVED
     Customer:
       type: object
       properties:
@@ -189,3 +175,8 @@ components:
           type: string
         phone:
           type: string
+
+
+
+
+
